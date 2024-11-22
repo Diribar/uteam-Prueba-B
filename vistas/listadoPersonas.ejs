@@ -4,13 +4,39 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/formatos/fontawesome/css/fontawesome.css">
+	<link rel="stylesheet" href="/formatos/fontawesome/css/solid.css">
+	<link rel="stylesheet" href="/formatos/fontawesome/css/regular.css">
+
+	<!-- Personalizado -->
 	<link rel="stylesheet" href="/formatos/0-Compartido/0-Body.css">
 </head>
 <body>
-	<% for (let persona of personas) { %>
-		<div class="flexRow">
-
-		</div>
-	<% } %>
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Fecha de cumple</th>
+				<th>Tiene seguro</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for (let persona of personas) { %>
+				<tr>
+					<td><%= persona.nombre %></td>
+					<td><%= persona.apellido %></td>
+					<td><%= persona.fechaCumple %></td>
+					<td><%- persona.tieneSeguro ? 'SI' : 'NO' %></td>
+					<td><i class="fa-solid fa-pen"></i></td>
+					<td><i class="fa-solid fa-trash-can"></i></td>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
 </body>
 </html>
