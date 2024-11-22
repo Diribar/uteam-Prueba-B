@@ -14,8 +14,8 @@ global.fs = require("fs");
 global.path = require("path");
 
 // Carpeta de formatos
-const carpetaPublica = path.join(__dirname, "publico");
-app.use("/formatos", express.static(carpetaPublica));
+const carpetaFormatos = path.join(__dirname, "formatos");
+app.use("/formatos", express.static(carpetaFormatos));
 
 // Vistas
 app.set("view engine", "ejs"); // Terminación de los archivos de vista
