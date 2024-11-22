@@ -28,14 +28,34 @@
 		<tbody>
 			<% for (let persona of personas) { %>
 				<tr>
-					<td><%= persona.nombre %></td>
-					<td><%= persona.apellido %></td>
-					<td><%= persona.fechaCumple %></td>
-					<td><%- persona.tieneSeguro ? 'SI' : 'NO' %></td>
+					<td class="id ocultar"><%= persona.id %></td>
+					<td><input type="text" value="<%= persona.nombre %>" disabled></td>
+					<td><input type="text" value="<%= persona.apellido %>" disabled></td>
+					<td><input type="date" value="<%= persona.fechaCumple %>" disabled></td>
+					<td>
+						<select name="" id="" disabled>
+							<option value="1" <% if (persona.tieneSeguro) { %>selected<% } %>>SI</option>
+							<option value="0" <% if (!persona.tieneSeguro) { %>selected<% } %>>NO</option>
+						</select>
+					</td>
 					<td><i class="fa-solid fa-pen"></i></td>
 					<td><i class="fa-solid fa-trash-can"></i></td>
 				</tr>
 			<% } %>
+			<tr>
+				<td><input type="text"></td>
+				<td><input type="text"></td>
+				<td><input type="date"></td>
+				<td>
+					<select name="" id="" >
+						<option class="ocultar" selected></option>
+						<option value="1">SI</option>
+						<option value="0">NO</option>
+					</select>
+				</td>
+				<td><i class="fa-solid fa-circle-check"></i></td>
+				<td></td>
+			</tr>
 		</tbody>
 	</table>
 </body>

@@ -1,0 +1,13 @@
+/* General */
+.fa-solid {cursor: pointer;}
+.ocultar {display: none;}
+
+/* Particular */
+td {
+	text-align: center;
+	input {
+		text-align: center; width: min-content;
+		&:disabled {border: none; color: black;}
+	}
+	select:disabled {border: none; color: black; opacity: 1;}
+}
