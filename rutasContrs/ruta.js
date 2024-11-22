@@ -2,10 +2,12 @@
 
 // Variables
 const router = express.Router();
-const contr = require("./controlador");
+const contrVista = require("./contrVista");
+const contrAPI = require("./contrAPI");
 
 // Rutas
-router.get("/", contr.inicio);
+router.get("/api", contrAPI.inicio);
+router.get("/", contrVista.inicio);
 
 // Fin
 module.exports = router;
