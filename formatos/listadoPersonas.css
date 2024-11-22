@@ -1,4 +1,9 @@
 /* General */
+body {background-color: lightcyan; padding-block: 30px ;}
+body * {background-color: transparent;}
+
+/* Clases */
+.flexColAlign {display: flex; flex-direction: column; align-items: center;}
 .fa-solid {cursor: pointer;}
 .ocultar {display: none;}
 
@@ -6,8 +11,12 @@
 td {
 	text-align: center;
 	input {
-		text-align: center; width: min-content;
+		text-align: center; width: min-content; background-color: snow;
 		&:disabled {border: none; color: black;}
 	}
-	select:disabled {border: none; color: black; opacity: 1;}
+	select {
+		background-color: snow;
+		&:disabled {border: none; color: black; opacity: 1;}
+	}
+	*:disabled {background-color: transparent;}
 }
