@@ -23,37 +23,39 @@
 				<th>Tiene seguro</th>
 				<th>Editar</th>
 				<th>Eliminar</th>
+				<th>Películas</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% for (let persona of personas) { %>
 				<tr>
 					<td class="id ocultar"><%= persona.id %></td>
-					<td><input type="text" value="<%= persona.nombre %>" disabled></td>
-					<td><input type="text" value="<%= persona.apellido %>" disabled></td>
-					<td><input type="date" value="<%= persona.fechaCumple %>" disabled></td>
+					<td><input name="nombre" type="text" value="<%= persona.nombre %>" disabled></td>
+					<td><input name="apellido" type="text" value="<%= persona.apellido %>" disabled></td>
+					<td><input name="fechaCumple" type="date" value="<%= persona.fechaCumple %>" disabled></td>
 					<td>
-						<select name="" id="" disabled>
+						<select name="tieneSeguro" id="" disabled>
 							<option value="1" <% if (persona.tieneSeguro) { %>selected<% } %>>SI</option>
 							<option value="0" <% if (!persona.tieneSeguro) { %>selected<% } %>>NO</option>
 						</select>
 					</td>
-					<td><i class="fa-solid fa-pen"></i></td>
-					<td><i class="fa-solid fa-trash-can"></i></td>
+					<td><i class="edicion fa-solid fa-pen"></i></td>
+					<td><i class="eliminar fa-solid fa-trash-can"></i></td>
+					<td><i class="listadoPeliculas fa-solid fa-film"></i></td>
 				</tr>
 			<% } %>
 			<tr>
-				<td><input type="text"></td>
-				<td><input type="text"></td>
-				<td><input type="date"></td>
+				<td><input name="nombre" type="text"></td>
+				<td><input name="apellido" type="text"></td>
+				<td><input name="fechaCumple" type="date"></td>
 				<td>
-					<select name="" id="" >
+					<select name="tieneSeguro" id="" >
 						<option class="ocultar" selected></option>
 						<option value="1">SI</option>
 						<option value="0">NO</option>
 					</select>
 				</td>
-				<td><i class="fa-solid fa-circle-check"></i></td>
+				<td><i class="confirmar fa-solid fa-circle-check"></i></td>
 				<td></td>
 			</tr>
 		</tbody>
