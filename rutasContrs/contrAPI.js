@@ -1,17 +1,15 @@
 "use strict";
 
 module.exports = {
-	inicio: (req, res) => res.render("vistaGral", {opciones}),
-	// Personas
-	listadoDePersonas: (req, res) => {},
-	buscarPorId: (req, res) => {},
-	buscarPorNombre: (req, res) => {},
-	crearPersona: (req, res) => {},
-	editarPersona: (req, res) => {},
-	eliminarPersona: (req, res) => {},
+	// Listado de personas
+	eliminaPersona: (req, res) => {},
+	editaPersona: (req, res) => {},
+	agregaPersona: (req, res) => {},
 
-	// Películas
-	mostrarPelis: (req, res) => {},
-	agregarPeli: (req, res) => {},
-	quitarPeli: (req, res) => {},
+	// Películas por persona
+	buscaPersonaPorId: (req, res) => {},
+	buscaPersonaPorNombre: (req, res) => {},
+	eliminaPeli: (req, res) => {},
+	editaPeli: (req, res) => {},
+	agregaPeli: (req, res) => {},
 };
