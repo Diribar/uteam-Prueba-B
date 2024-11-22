@@ -16,6 +16,8 @@ global.path = require("path");
 // Carpeta de formatos
 const carpetaFormatos = path.join(__dirname, "formatos");
 app.use("/formatos", express.static(carpetaFormatos));
+const carpetaJS = path.join(__dirname, "javascript");
+app.use("/javascript", express.static(carpetaJS));
 
 // Vistas
 app.set("view engine", "ejs"); // Terminación de los archivos de vista
