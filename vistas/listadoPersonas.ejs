@@ -33,11 +33,11 @@
 			<% for (let persona of personas) { %>
 				<tr class="listado">
 					<td class="id ocultar"><%= persona.id %></td>
-					<td><input name="nombre" type="text" value="<%= persona.nombre %>" disabled></td>
-					<td><input name="apellido" type="text" value="<%= persona.apellido %>" disabled></td>
-					<td><input name="fechaCumple" type="date" value="<%= persona.fechaCumple %>" disabled></td>
+					<td><input name="nombre" type="text" value="<%= persona.nombre %>" disabled class="input"></td>
+					<td><input name="apellido" type="text" value="<%= persona.apellido %>" disabled class="input"></td>
+					<td><input name="fechaCumple" type="date" value="<%= persona.fechaCumple %>" disabled class="input"></td>
 					<td>
-						<select name="tieneSeguro" id="" disabled>
+						<select name="tieneSeguro" id="" disabled class="input">
 							<option value="1" <% if (persona.tieneSeguro) { %>selected<% } %>>SI</option>
 							<option value="0" <% if (!persona.tieneSeguro) { %>selected<% } %>>NO</option>
 						</select>
@@ -52,7 +52,7 @@
 				<td><input name="apellido" type="text"></td>
 				<td><input name="fechaCumple" type="date"></td>
 				<td>
-					<select name="tieneSeguro" id="" >
+					<select name="tieneSeguro">
 						<option class="ocultar" selected></option>
 						<option value="1">SI</option>
 						<option value="0">NO</option>

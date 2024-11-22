@@ -7,6 +7,7 @@ module.exports = {
 		const json = fs.readFileSync(rutaNombre, "utf8");
 		const info = JSON.parse(json);
 		const personas = info.map((n) => ({
+			id: n.id,
 			nombre: n["first-name"],
 			apellido: n["last-name"],
 			fechaCumple: n.birthdate,
