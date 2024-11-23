@@ -64,21 +64,20 @@ module.exports = {
 	// Películas por persona
 	eliminaPeli: (req, res) => {},
 	agregaPeli: (req, res) => {
-		// Obtiene los datos
-		const datos = req.query;
-
-		// Obtiene el archivo de personasPelis
-		let info = funciones.leerJson("personas");
-
-		// Genera un id
+		// Variables
+		let datos = {id: null, ...req.query};
+		let info = funciones.leerJson("persPelis");
 		datos.id = FN.generaUnId(info);
+		console.log(75, datos);
 
 		// Agrega el elemento y los ordena por su id
+		console.log(74, info);
 		info.push(datos);
 		info.sort((a, b) => a.id - b.id);
+		console.log(77, info);
 
 		// Guarda la información
-		funciones.guardaJson("personas", info);
+		funciones.guardaJson("persPelis", info);
 
 		// Fin
 		return res.json();
