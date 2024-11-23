@@ -22,7 +22,20 @@ module.exports = {
 		return res.json();
 	},
 	eliminaPersona: (req, res) => {
-		console.log(req.query);
+		// Obtiene los datos
+		const {id} = req.query;
+
+		// Obtiene el archivo de personas
+		const info = funciones.leerJson("personas");
+
+		// Busca el índice
+		const indice = info.findIndex((n) => n.id == id);
+
+		// Quita el elemento y guarda la info
+		if (indice != -1) info.splice(indice, 1);
+		funciones.guardaJson("personas", info);
+
+		// Fin
 		return res.json();
 	},
 	agregaPersona: (req, res) => {
@@ -63,8 +76,8 @@ module.exports = {
 
 const FN_datosGuardar = (datos) => ({
 	id: datos.id ? Number(datos.id) : null,
-	"first-name": datos.nombre,
-	"last-name": datos.apellido,
+	"first-name": datos.nombre.trim(),
+	"last-name": datos.apellido.trim(),
 	birthdate: datos.fechaCumple,
 	"has-insurance": datos.tieneSeguro == "1",
 });
