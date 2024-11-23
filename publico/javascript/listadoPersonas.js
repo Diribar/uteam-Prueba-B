@@ -84,6 +84,7 @@ window.addEventListener("load", () => {
 			datos += (!datos ? "/?" : "&") + input.name + "=" + input.value;
 		}
 
+		// Agrega un registro
 		await fetch("/api/" + rutas.agregar + datos);
 		location.reload();
 	});

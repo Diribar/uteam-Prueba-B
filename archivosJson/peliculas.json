@@ -8,5 +8,10 @@
 	{"id": 7, "title": "La fuerza de uno", "genre": "fantasy"},
 	{"id": 8, "title": "Vidas de papel", "genre": "drama"},
 	{"id": 9, "title": "Disparando a perros", "genre": "action"},
-	{"id": 10, "title": "Un don excepcional", "genre": "comedia"}
+	{"id": 10, "title": "Camino a la gloria", "genre": "deporte"},
+	{"id": 11, "title": "El tren de la vida", "genre": "action"},
+	{"id": 12, "title": "Nosotros las personas", "genre": "religioso"},
+	{"id": 13, "title": "Sonido de esperanza", "genre": "action"},
+	{"id": 14, "title": "Un equipo legendario", "genre": "action"},
+	{"id": 15, "title": "Un don excepcional", "genre": "comedia"}
 ]

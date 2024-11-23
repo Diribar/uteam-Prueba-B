@@ -2,10 +2,11 @@
 
 window.addEventListener("load", () => {
 	// Variables
-	let DOM={
-		agregar: document.querySelector("#agregar")
-	}
-
+	let DOM = {
+		peliId: document.querySelector("#agregar select[name='peliId']"),
+		agregar: document.querySelector("#agregar .confirmar"),
+	};
+	const personaId = document.querySelector("#datosPersona #personaId").innerHTML;
 
 	// Eventos - Agregar
 	DOM.agregar.addEventListener("click", async () => {
@@ -13,19 +14,21 @@ window.addEventListener("load", () => {
 		if (DOM.agregar.className.includes("inactivo")) return;
 		DOM.agregar.classList.add("inactivo");
 
-		// Obtiene los valores
-		const fila = DOM.inputs.length / 4 - 1;
-		let datos = "";
-		for (let campo = 0; campo < 4; campo++) {
-			const input = DOM.inputs[fila * 4 + campo];
-			if (!input.value) return;
-			datos += (!datos ? "/?" : "&") + input.name + "=" + input.value;
-		}
+		// Obtiene el valor
+		let datos = "/?personaId=" + personaId + "&peliId=" + DOM.peliId.value;
 
+		// Agrega un registro
 		await fetch("/api/" + rutas.agregar + datos);
 		location.reload();
 	});
+	// Eventos - Inputs
+	DOM.peliId.addEventListener("input", () => {
+		// Activa o inactiva el ícono de confirmar
+		DOM.peliId.value
+			? DOM.agregar.classList.remove("inactivo") // activo
+			: DOM.agregar.classList.add("inactivo"); // inactivo
 
+	});
 });
 
 const rutas = {

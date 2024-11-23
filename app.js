@@ -1,5 +1,7 @@
 "use strict";
 
+global.maxNumPelisPorPers = 10;
+
 // Servidor
 global.express = require("express");
 const app = express();

@@ -42,9 +42,10 @@
 						<td><i class="eliminar fa-solid fa-trash-can"></i></td>
 					</tr>
 					<% } %>
+					<% if (peliculas.length<) %>
 					<tr id="agregar">
 						<td>
-							<select name="peliId" id="">
+							<select name="peliId">
 								<option value="" class="ocultar">Agregar</option>
 								<% for (let pelicula of todasLasPelis) { %>
 									<option value="<%= pelicula.id %>"><%= pelicula.title %></option>
