@@ -10,13 +10,12 @@ const app = express();
 app.listen(80, () => console.log("Servidor funcionando..."));
 
 // Requires
-global.fs = require("fs");
 global.path = require("path");
 
 // Carpeta de formatos
-const carpetaFormatos = path.join(__dirname, "formatos");
+const carpetaFormatos = path.join(__dirname, "publico/formatos");
 app.use("/formatos", express.static(carpetaFormatos));
-const carpetaJS = path.join(__dirname, "javascript");
+const carpetaJS = path.join(__dirname, "publico/javascript");
 app.use("/javascript", express.static(carpetaJS));
 
 // Vistas
