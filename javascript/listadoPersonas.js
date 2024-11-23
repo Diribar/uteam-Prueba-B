@@ -103,6 +103,9 @@ window.addEventListener("load", () => {
 			input.value = input.value.slice(0, 20);
 		});
 	});
+
+	// Fin
+	return
 });
 
 const rutas = {
