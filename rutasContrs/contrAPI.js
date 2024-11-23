@@ -8,7 +8,9 @@ module.exports = {
 		return res.json()
 	},
 	eliminaPersona: (req, res) => {
-		"elimina";
+		console.log("elimina");
+		console.log(req.query);
+		return res.json()
 	},
 	agregaPersona: (req, res) => {
 		"agrega";

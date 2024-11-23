@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
 		confirmar: DOM.agregar.querySelector(".confirmar"),
 	};
 
-	// Eventos
+	// Eventos - Edición
 	DOM.ediciones.forEach((edicion, fila) => {
 		edicion.addEventListener("click", async () => {
 			// Edición
@@ -40,11 +40,11 @@ window.addEventListener("load", () => {
 				if (DOM.ediciones[fila].className.includes("inactivo")) return;
 
 				// Obtiene los valores
-				let datos = "/?id="+DOM.ids[fila].innerHTML;
+				let datos = "/?id=" + DOM.ids[fila].innerHTML;
 				for (let campo = 0; campo < 4; campo++) {
 					const input = DOM.inputsListado[fila * 4 + campo];
 					if (!input.value) return;
-					datos += "&"+ input.name + "=" + input.value;
+					datos += "&" + input.name + "=" + input.value;
 				}
 				console.log(datos);
 
@@ -76,7 +76,17 @@ window.addEventListener("load", () => {
 			inputListado.value = inputListado.value.slice(0, 20);
 		});
 	});
+	// Eventos - Eliminar
+	DOM.eliminars.forEach((eliminar, fila) => {
+		eliminar.addEventListener("click", async () => {
+			// Obtiene los valores
+			let datos = "/?id=" + DOM.ids[fila].innerHTML;
 
+			// Actualiza la info
+			DOM.listado[fila].classList.add("ocultar");
+			await fetch("/api/" + rutas.eliminar + datos);
+		});
+	});
 });
 
 const rutas = {
