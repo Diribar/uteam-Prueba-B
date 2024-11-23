@@ -3,7 +3,7 @@
 module.exports = {
 	listadoDePersonas: (req, res) => {
 		// Obtiene información del archivo 'json'
-		const rutaNombre = path.join(__dirname, "../datos.json");
+		const rutaNombre = path.join(__dirname, "../archivosJson/personas.json");
 		const json = fs.readFileSync(rutaNombre, "utf8");
 		const info = JSON.parse(json);
 		const personas = info.map((n) => ({
