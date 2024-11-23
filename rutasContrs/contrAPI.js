@@ -6,13 +6,7 @@ module.exports = {
 	editaPersona: (req, res) => {
 		// Obtiene los datos
 		const datos = req.query;
-		const datosGuardar = {
-			id: Number(datos.id),
-			"first-name": datos.nombre,
-			"last-name": datos.apellido,
-			birthdate: datos.fechaCumple,
-			"has-insurance": datos.tieneSeguro == "1",
-		};
+		const datosGuardar = FN_datosGuardar(datos);
 
 		// Obtiene el archivo de personas
 		const info = funciones.leerJson("personas");
@@ -22,7 +16,7 @@ module.exports = {
 
 		// Reemplaza el elemento y lo guarda
 		info[indice] = datosGuardar;
-
+		funciones.guardaJson("personas", info);
 
 		// Fin
 		return res.json();
@@ -32,7 +26,30 @@ module.exports = {
 		return res.json();
 	},
 	agregaPersona: (req, res) => {
-		console.log(req.query);
+		// Obtiene los datos
+		const datos = req.query;
+		const datosGuardar = FN_datosGuardar(datos);
+
+		// Obtiene el archivo de personas
+		let info = funciones.leerJson("personas");
+
+		// Genera un id
+		for (let id = 1; id <= info.length + 1; id++) {
+			const indice = info.findIndex((n) => n.id == id);
+			if (indice == -1) {
+				datosGuardar.id = id;
+				break;
+			}
+		}
+
+		// Agrega el elemento y los ordena por su id
+		info.push(datosGuardar);
+		info.sort((a, b) => a.id - b.id);
+
+		// Guarda la información
+		funciones.guardaJson("personas", info);
+
+		// Fin
 		return res.json();
 	},
 
@@ -43,3 +60,11 @@ module.exports = {
 	editaPeli: (req, res) => {},
 	agregaPeli: (req, res) => {},
 };
+
+const FN_datosGuardar = (datos) => ({
+	id: datos.id ? Number(datos.id) : null,
+	"first-name": datos.nombre,
+	"last-name": datos.apellido,
+	birthdate: datos.fechaCumple,
+	"has-insurance": datos.tieneSeguro == "1",
+});
