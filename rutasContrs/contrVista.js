@@ -26,11 +26,13 @@ module.exports = {
 		// Obtiene la información de la persona
 		const personas = funciones.leerJson("personas");
 		let persona = personas.find((n) => n.id == id);
-		persona = {
-			id: persona.id,
-			nombre: persona["first-name"],
-			apellido: persona["last-name"],
-		};
+		persona = persona
+			? {
+					id: persona.id,
+					nombre: persona["first-name"],
+					apellido: persona["last-name"],
+			  }
+			: {};
 
 		// Obtiene las relaciones persona-película
 		let pelisIds = funciones.leerJson("persPelis"); // obtiene el archivo de persPelis
