@@ -36,6 +36,9 @@ window.addEventListener("load", () => {
 			}
 			// Guarda los cambios
 			else {
+				// Si no está permitido, interrumpe la función
+				if (DOM.ediciones[fila].className.includes("inactivo")) return;
+
 				// Obtiene los valores
 				let datos = "";
 				for (let campo = 0; campo < 4; campo++) {
@@ -50,5 +53,22 @@ window.addEventListener("load", () => {
 			}
 		});
 	});
-	DOM;
+	DOM.inputsListado.forEach((inputListado, i) => {
+		inputListado.addEventListener("input", () => {
+			// Averigua la fila
+			const fila = Math.floor(i / 4);
+
+			// Averigua si todos los campos tienen un valor
+			let camposCompletos = true;
+			for (let campo = 0; campo < 4; campo++) {
+				const input = DOM.inputsListado[fila * 4 + campo];
+				if (!input.value) camposCompletos = false;
+			}
+
+			// Activa o inactiva el ícono de confirmar
+			camposCompletos
+				? DOM.ediciones[fila].classList.remove("inactivo") // activo
+				: DOM.ediciones[fila].classList.add("inactivo"); // inactivo
+		});
+	});
 });
