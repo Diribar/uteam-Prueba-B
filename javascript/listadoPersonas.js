@@ -36,7 +36,7 @@ window.addEventListener("load", () => {
 			}
 			// Guarda los cambios
 			else {
-				// Si no está permitido, interrumpe la función
+				// Si está inactivo, interrumpe la función
 				if (DOM.ediciones[fila].className.includes("inactivo")) return;
 
 				// Obtiene los valores
@@ -71,7 +71,7 @@ window.addEventListener("load", () => {
 				? DOM.ediciones[fila].classList.remove("inactivo") // activo
 				: DOM.ediciones[fila].classList.add("inactivo"); // inactivo
 
-			//
+			// Largo máximo de los inputs
 			inputListado.value=inputListado.value.slice(0,20)
 		});
 	});
