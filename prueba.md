@@ -28,14 +28,16 @@ Personas
 - Crear una persona
 - Eliminar una persona
 
-- Buscar una persona por id
-- Buscar una persona por nombre
-
 Películas de Personas
 - Mostrar las películas de una persona
-- Quitar una película de una persona
+
 - Agregar una película a una persona
+
+- Quitar una película de una persona
 - Se debe parametrizar el número máximo de películas por persona. Un valor entero que determina la máxima cantidad de películas que puede tener asociada una persona.
+
+- Buscar una persona por id
+- Buscar una persona por nombre
 
 Consideraciones:
 - El resultado a enviar debe ser un zip, o subirlo a una cuenta pública de git que solo tenga el src, el archivo de la build tool y el archivo pom.xml de manera que para revisar, se pueda hacer la descarga de las dependencias y el run.
