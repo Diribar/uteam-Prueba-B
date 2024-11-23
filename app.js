@@ -1,9 +1,5 @@
 "use strict";
 
-// Obtiene las variables
-// const variables = require("./variables.js");
-// for (let metodo in variables) global[metodo] = variables[metodo];
-
 // Servidor
 global.express = require("express");
 const app = express();
