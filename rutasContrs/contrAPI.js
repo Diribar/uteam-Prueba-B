@@ -6,7 +6,7 @@ module.exports = {
 	editaPersona: (req, res) => {
 		// Obtiene los datos
 		const datos = req.query;
-		const datosGuardar = FN_datosGuardar(datos);
+		const datosGuardar = FN.datosGuardar(datos);
 
 		// Obtiene el archivo de personas
 		const info = funciones.leerJson("personas");
@@ -42,19 +42,13 @@ module.exports = {
 	agregaPersona: (req, res) => {
 		// Obtiene los datos
 		const datos = req.query;
-		const datosGuardar = FN_datosGuardar(datos);
+		const datosGuardar = FN.datosGuardar(datos);
 
 		// Obtiene el archivo de personas
 		let info = funciones.leerJson("personas");
 
 		// Genera un id
-		for (let id = 1; id <= info.length + 1; id++) {
-			const indice = info.findIndex((n) => n.id == id);
-			if (indice == -1) {
-				datosGuardar.id = id;
-				break;
-			}
-		}
+		datosGuardar.id = FN.generaUnId(info);
 
 		// Agrega el elemento y los ordena por su id
 		info.push(datosGuardar);
@@ -70,10 +64,24 @@ module.exports = {
 	// Películas por persona
 	eliminaPeli: (req, res) => {},
 	agregaPeli: (req, res) => {
+		// Obtiene los datos
+		const datos = req.query;
 
+		// Obtiene el archivo de personasPelis
+		let info = funciones.leerJson("personas");
+
+		// Genera un id
+		datos.id = FN.generaUnId(info);
+
+		// Agrega el elemento y los ordena por su id
+		info.push(datos);
+		info.sort((a, b) => a.id - b.id);
+
+		// Guarda la información
+		funciones.guardaJson("personas", info);
 
 		// Fin
-		return res.json()
+		return res.json();
 	},
 
 	// Buscadores
@@ -81,10 +89,18 @@ module.exports = {
 	buscaPersonaPorNombre: (req, res) => {},
 };
 
-const FN_datosGuardar = (datos) => ({
-	id: datos.id ? Number(datos.id) : null,
-	"first-name": datos.nombre.trim(),
-	"last-name": datos.apellido.trim(),
-	birthdate: datos.fechaCumple,
-	"has-insurance": datos.tieneSeguro == "1",
-});
+const FN = {
+	datosGuardar: (datos) => ({
+		id: datos.id ? Number(datos.id) : null,
+		"first-name": datos.nombre.trim(),
+		"last-name": datos.apellido.trim(),
+		birthdate: datos.fechaCumple,
+		"has-insurance": datos.tieneSeguro == "1",
+	}),
+	generaUnId: (info) => {
+		for (let id = 1; id <= info.length + 1; id++) {
+			const indice = info.findIndex((n) => n.id == id);
+			if (indice == -1) return id;
+		}
+	},
+};
