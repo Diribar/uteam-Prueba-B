@@ -8,18 +8,16 @@ window.addEventListener("load", () => {
 	};
 	DOM = {
 		...DOM,
+		inputs: document.querySelectorAll("table .input"),
+		confirmar: DOM.agregar.querySelector(".confirmar"),
+
 		// Listado - campos
 		ids: document.querySelectorAll(".listado .id"),
-		inputsListado: document.querySelectorAll(".listado .input"),
 
 		// Listado - íconos
 		ediciones: document.querySelectorAll(".listado .edicion"),
 		eliminars: document.querySelectorAll(".listado .eliminar"),
-		listadoPelis: document.querySelectorAll(".listado .listadoPeliculas"),
-
-		// Agregar
-		inputsAgregar: DOM.agregar.querySelector("input[name='nombre']"),
-		confirmar: DOM.agregar.querySelector(".confirmar"),
+		listadoPelis: document.querySelectorAll(".listado .pelis"),
 	};
 
 	// Eventos - Edición
@@ -28,7 +26,7 @@ window.addEventListener("load", () => {
 			// Edición
 			if (edicion.className.includes("fa-pen")) {
 				// Habilita la edición
-				for (let campo = 0; campo < 4; campo++) DOM.inputsListado[fila * 4 + campo].disabled = false;
+				for (let campo = 0; campo < 4; campo++) DOM.inputs[fila * 4 + campo].disabled = false;
 
 				// Cambia el ícono
 				DOM.ediciones[fila].classList.replace("fa-pen", "fa-circle-check");
@@ -42,7 +40,7 @@ window.addEventListener("load", () => {
 				// Obtiene los valores
 				let datos = "/?id=" + DOM.ids[fila].innerHTML;
 				for (let campo = 0; campo < 4; campo++) {
-					const input = DOM.inputsListado[fila * 4 + campo];
+					const input = DOM.inputs[fila * 4 + campo];
 					if (!input.value) return;
 					datos += "&" + input.name + "=" + input.value;
 				}
@@ -54,8 +52,19 @@ window.addEventListener("load", () => {
 			}
 		});
 	});
+	// Eventos - Eliminar
+	DOM.eliminars.forEach((eliminar, fila) => {
+		eliminar.addEventListener("click", async () => {
+			// Obtiene los valores
+			let datos = "/?id=" + DOM.ids[fila].innerHTML;
+
+			// Actualiza la info
+			DOM.listado[fila].classList.add("ocultar");
+			await fetch("/api/" + rutas.eliminar + datos);
+		});
+	});
 	// Eventos - Inputs
-	DOM.inputsListado.forEach((inputListado, i) => {
+	DOM.inputs.forEach((inputListado, i) => {
 		inputListado.addEventListener("input", () => {
 			// Averigua la fila
 			const fila = Math.floor(i / 4);
@@ -63,7 +72,7 @@ window.addEventListener("load", () => {
 			// Averigua si todos los campos tienen un valor
 			let camposCompletos = true;
 			for (let campo = 0; campo < 4; campo++) {
-				const input = DOM.inputsListado[fila * 4 + campo];
+				const input = DOM.inputs[fila * 4 + campo];
 				if (!input.value) camposCompletos = false;
 			}
 
@@ -74,17 +83,6 @@ window.addEventListener("load", () => {
 
 			// Largo máximo de los inputs
 			inputListado.value = inputListado.value.slice(0, 20);
-		});
-	});
-	// Eventos - Eliminar
-	DOM.eliminars.forEach((eliminar, fila) => {
-		eliminar.addEventListener("click", async () => {
-			// Obtiene los valores
-			let datos = "/?id=" + DOM.ids[fila].innerHTML;
-
-			// Actualiza la info
-			DOM.listado[fila].classList.add("ocultar");
-			await fetch("/api/" + rutas.eliminar + datos);
 		});
 	});
 });
