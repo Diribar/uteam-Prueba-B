@@ -12,6 +12,7 @@ module.exports = {
 			fechaCumple: n.birthdate,
 			tieneSeguro: n["has-insurance"],
 		}));
+		personas.sort((a, b) => (a.nombre < b.nombre ? -1 : 1)).sort((a, b) => (a.apellido < b.apellido ? -1 : 1));
 		return res.render("listadoPersonas", {personas});
 	},
 	pelisPorPersona: (req, res) => {
