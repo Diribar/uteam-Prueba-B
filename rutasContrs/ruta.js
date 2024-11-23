@@ -19,7 +19,7 @@ router.get("/api/agrega-pelicula", contrAPI.agregaPeli);
 
 // Rutas - Vista
 router.get("/listado-de-personas", contrVista.listadoDePersonas);
-router.get("/muestra-peliculas-de-personas", contrVista.mostrarPelisDePersona);
+router.get("/peliculas-por-persona", contrVista.pelisPorPersona);
 
 // Fin
 module.exports = router;

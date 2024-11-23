@@ -15,5 +15,7 @@ module.exports = {
 		}));
 		return res.render("listadoPersonas", {personas});
 	},
-	mostrarPelisDePersona: (req, res) => {},
+	pelisPorPersona: (req, res) => {
+		return res.send("pelisPorPersona")
+	},
 };
