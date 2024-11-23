@@ -6,8 +6,8 @@ const contrVista = require("./contrVista");
 const contrAPI = require("./contrAPI");
 
 // Rutas - API - Listado de personas
-router.get("/api/elimina-persona", contrAPI.eliminaPersona);
 router.get("/api/edita-persona", contrAPI.editaPersona);
+router.get("/api/elimina-persona", contrAPI.eliminaPersona);
 router.get("/api/agrega-persona", contrAPI.agregaPersona);
 
 // Rutas - API - Películas por persona

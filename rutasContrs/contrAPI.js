@@ -2,9 +2,17 @@
 
 module.exports = {
 	// Listado de personas
-	eliminaPersona: (req, res) => {},
-	editaPersona: (req, res) => {},
-	agregaPersona: (req, res) => {},
+	editaPersona: (req, res) => {
+		console.log("edita");
+		console.log(req.query);
+		return res.json()
+	},
+	eliminaPersona: (req, res) => {
+		"elimina";
+	},
+	agregaPersona: (req, res) => {
+		"agrega";
+	},
 
 	// Películas por persona
 	buscaPersonaPorId: (req, res) => {},

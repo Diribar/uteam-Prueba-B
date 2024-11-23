@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
 
 	// Eventos
 	DOM.ediciones.forEach((edicion, fila) => {
-		edicion.addEventListener("click", () => {
+		edicion.addEventListener("click", async () => {
 			// Edición
 			if (edicion.className.includes("fa-pen")) {
 				// Habilita la edición
@@ -40,16 +40,17 @@ window.addEventListener("load", () => {
 				if (DOM.ediciones[fila].className.includes("inactivo")) return;
 
 				// Obtiene los valores
-				let datos = "";
+				let datos = "/?id="+DOM.ids[fila].innerHTML;
 				for (let campo = 0; campo < 4; campo++) {
 					const input = DOM.inputsListado[fila * 4 + campo];
 					if (!input.value) return;
-					datos += !datos.length ? "?" : "&";
-					datos += input.name + "=" + input.value;
+					datos += "&"+ input.name + "=" + input.value;
 				}
 				console.log(datos);
 
 				// Actualiza la info
+				await fetch("/api/" + rutas.editar + datos);
+				// location.reload();
 			}
 		});
 	});
@@ -72,7 +73,14 @@ window.addEventListener("load", () => {
 				: DOM.ediciones[fila].classList.add("inactivo"); // inactivo
 
 			// Largo máximo de los inputs
-			inputListado.value=inputListado.value.slice(0,20)
+			inputListado.value = inputListado.value.slice(0, 20);
 		});
 	});
+
 });
+
+const rutas = {
+	editar: "edita-persona",
+	eliminar: "elimina-persona",
+	agregar: "agrega-persona",
+};
