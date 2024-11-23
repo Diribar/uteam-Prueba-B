@@ -3,21 +3,21 @@
 window.addEventListener("load", () => {
 	// Variables
 	let DOM = {
-		listado: document.querySelectorAll("table .listado"),
-		agregar: document.querySelector("table .agregar"),
+		listado: document.querySelectorAll("table #listado"),
+		agregar: document.querySelector("table #agregar"),
 	};
 	DOM = {
 		...DOM,
 		// Casos puntuales
 		inputs: document.querySelectorAll("table .input"),
 		confirmar: document.querySelectorAll(".confirmar"),
-		ids: document.querySelectorAll(".listado .id"),
+		ids: document.querySelectorAll("#listado .id"),
 
 		// Íconos
-		ediciones: document.querySelectorAll(".listado .edicion"),
-		eliminars: document.querySelectorAll(".listado .eliminar"),
-		listadoPelis: document.querySelectorAll(".listado .pelis"),
-		agregar: document.querySelector(".agregar .confirmar"),
+		ediciones: document.querySelectorAll("#listado .edicion"),
+		eliminars: document.querySelectorAll("#listado .eliminar"),
+		listadoPelis: document.querySelectorAll("#listado .pelis"),
+		agregar: document.querySelector("#agregar .confirmar"),
 	};
 
 	// Eventos - Edición

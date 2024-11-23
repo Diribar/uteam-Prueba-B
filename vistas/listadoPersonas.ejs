@@ -32,7 +32,7 @@
 			</thead>
 			<tbody>
 				<% for (let persona of personas) { %>
-				<tr class="listado">
+				<tr id="listado">
 					<td class="id ocultar"><%= persona.id %></td>
 					<td><input name="nombre" type="text" value="<%= persona.nombre %>" disabled class="input" /></td>
 					<td><input name="apellido" type="text" value="<%= persona.apellido %>" disabled class="input" /></td>
@@ -50,7 +50,7 @@
 					</td>
 				</tr>
 				<% } %>
-				<tr class="agregar">
+				<tr id="agregar">
 					<td><input name="nombre" type="text" class="input" /></td>
 					<td><input name="apellido" type="text" class="input" /></td>
 					<td><input name="fechaCumple" type="date" class="input" /></td>

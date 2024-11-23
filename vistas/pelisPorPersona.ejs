@@ -35,14 +35,14 @@
 				</thead>
 				<tbody>
 					<% for (let pelicula of peliculas) { %>
-					<tr class="listado">
+					<tr id="listado">
 						<td class="id ocultar"><%= pelicula.id %></td>
 						<td><%= pelicula.title %></td>
 						<td class="genero"><%= pelicula.genre %></td>
 						<td><i class="eliminar fa-solid fa-trash-can"></i></td>
 					</tr>
 					<% } %>
-					<tr class="agregar">
+					<tr id="agregar">
 						<td>
 							<select name="peliId" id="">
 								<option value="" class="ocultar">Agregar</option>
