@@ -22,18 +22,19 @@ module.exports = {
 		return res.json();
 	},
 	eliminaPersona: (req, res) => {
-		// Obtiene los datos
+		// Variables
 		const {id} = req.query;
+		let info;
 
-		// Obtiene el archivo de personas
-		const info = funciones.leerJson("personas");
+		// Quita la relación persona-película
+		info = funciones.leerJson("persPelis"); // obtiene el archivo de persPelis
+		info = info.filter((n) => n.personaId != id); // quita los elementos del usuario
+		funciones.guardaJson("persPelis", info); // guarda la info
 
-		// Busca el índice
-		const indice = info.findIndex((n) => n.id == id);
-
-		// Quita el elemento y guarda la info
-		if (indice != -1) info.splice(indice, 1);
-		funciones.guardaJson("personas", info);
+		// Quita la persona
+		info = funciones.leerJson("personas"); // obtiene el archivo de personas
+		info = info.filter((n) => n.id != id); // quita el usuario
+		funciones.guardaJson("personas", info); // guarda la info
 
 		// Fin
 		return res.json();
