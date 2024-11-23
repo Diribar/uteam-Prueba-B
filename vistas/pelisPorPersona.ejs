@@ -47,7 +47,7 @@
 						<td>
 							<select name="peliId">
 								<option value="" class="ocultar">Agregar</option>
-								<% for (let pelicula of todasLasPelis) { %>
+								<% for (let pelicula of pelisAgregar) { %>
 								<option value="<%= pelicula.id %>"><%= pelicula.title %></option>
 								<% } %>
 							</select>

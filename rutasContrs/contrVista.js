@@ -39,8 +39,9 @@ module.exports = {
 		// Obtiene las películas de la persona
 		const todasLasPelis = funciones.leerJson("peliculas"); // obtiene el archivo de películas
 		const peliculas = todasLasPelis.filter((n) => pelisIds.includes(n.id)); // obtiene las películas de la persona
+		const pelisAgregar = todasLasPelis.filter((n) => !pelisIds.some((m) => m == n.id)); // obtiene las películas que se pueden agregar
 
 		// Fin
-		return res.render("pelisPorPersona", {persona, peliculas, todasLasPelis});
+		return res.render("pelisPorPersona", {persona, peliculas, pelisAgregar});
 	},
 };

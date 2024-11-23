@@ -68,13 +68,11 @@ module.exports = {
 		let datos = {id: null, ...req.query};
 		let info = funciones.leerJson("persPelis");
 		datos.id = FN.generaUnId(info);
-		console.log(75, datos);
+		for (let campo in datos) datos[campo] = Number(datos[campo]);
 
 		// Agrega el elemento y los ordena por su id
-		console.log(74, info);
 		info.push(datos);
 		info.sort((a, b) => a.id - b.id);
-		console.log(77, info);
 
 		// Guarda la información
 		funciones.guardaJson("persPelis", info);

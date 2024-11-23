@@ -2,5 +2,7 @@
 	{"id": 1, "personaId": 1, "peliId": 1},
 	{"id": 2, "personaId": 1, "peliId": 2},
 	{"id": 3, "personaId": 2, "peliId": 1},
-	{"id": 4, "personaId": 2, "peliId": 4}
+	{"id": 4, "personaId": 2, "peliId": 4},
+	{"id": 5, "personaId": 2, "peliId": 5},
+	{"id": 7, "personaId": 2, "peliId": 2}
 ]
