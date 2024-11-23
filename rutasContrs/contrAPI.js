@@ -68,11 +68,12 @@ module.exports = {
 	},
 
 	// Películas por persona
+	eliminaPeli: (req, res) => {},
+	agregaPeli: (req, res) => {},
+
+	// Buscadores
 	buscaPersonaPorId: (req, res) => {},
 	buscaPersonaPorNombre: (req, res) => {},
-	eliminaPeli: (req, res) => {},
-	editaPeli: (req, res) => {},
-	agregaPeli: (req, res) => {},
 };
 
 const FN_datosGuardar = (datos) => ({
