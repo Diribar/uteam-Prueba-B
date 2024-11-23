@@ -26,9 +26,10 @@ Personas
 - Listar todas las personas (debe retornar el listado ordenado por apellido, nombre)
 - Modificar una persona (solo se deben modificar los datos enviados. Si un dato no se envia, no se debe modificar)
 - Crear una persona
+
+- Eliminar una persona
 - Buscar una persona por id
 - Buscar una persona por nombre
-- Eliminar una persona
 
 Películas de Personas
 - Mostrar las películas de una persona
