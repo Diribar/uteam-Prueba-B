@@ -13,11 +13,11 @@ td {
 	text-align: center;
 	input {
 		text-align: center; width: min-content; background-color: snow;
-		&:disabled {border: none; color: black;}
+		&:disabled {border-color: transparent; color: black;}
 	}
 	select {
 		background-color: snow;
-		&:disabled {border: none; color: black; opacity: 1;}
+		&:disabled {border-color: transparent; color: black; opacity: 1;}
 	}
 	*:disabled {background-color: transparent;}
 }

@@ -53,6 +53,7 @@ window.addEventListener("load", () => {
 			}
 		});
 	});
+	// Eventos - Inputs
 	DOM.inputsListado.forEach((inputListado, i) => {
 		inputListado.addEventListener("input", () => {
 			// Averigua la fila
@@ -69,6 +70,9 @@ window.addEventListener("load", () => {
 			camposCompletos
 				? DOM.ediciones[fila].classList.remove("inactivo") // activo
 				: DOM.ediciones[fila].classList.add("inactivo"); // inactivo
+
+			//
+			inputListado.value=inputListado.value.slice(0,20)
 		});
 	});
 });
