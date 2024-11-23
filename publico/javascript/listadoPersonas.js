@@ -54,6 +54,7 @@ window.addEventListener("load", () => {
 
 				// Actualiza la info
 				await fetch("/api/" + rutas.editar + datos);
+				location.reload();
 			}
 		});
 	});
@@ -72,6 +73,7 @@ window.addEventListener("load", () => {
 	DOM.agregar.addEventListener("click", async () => {
 		// Si está inactivo, interrumpe la función
 		if (DOM.agregar.className.includes("inactivo")) return;
+		DOM.agregar.classList.add("inactivo");
 
 		// Obtiene los valores
 		const fila = DOM.inputs.length / 4 - 1;
@@ -82,9 +84,8 @@ window.addEventListener("load", () => {
 			datos += (!datos ? "/?" : "&") + input.name + "=" + input.value;
 		}
 
-		// Actualiza la info
 		await fetch("/api/" + rutas.agregar + datos);
-		// location.reload();
+		location.reload();
 	});
 	// Eventos - Inputs
 	DOM.inputs.forEach((input, i) => {
