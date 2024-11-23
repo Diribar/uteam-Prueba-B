@@ -64,16 +64,16 @@ window.addEventListener("load", () => {
 		});
 	});
 	// Eventos - Inputs
-	DOM.inputs.forEach((inputListado, i) => {
-		inputListado.addEventListener("input", () => {
+	DOM.inputs.forEach((input, i) => {
+		input.addEventListener("input", () => {
 			// Averigua la fila
 			const fila = Math.floor(i / 4);
 
 			// Averigua si todos los campos tienen un valor
 			let camposCompletos = true;
 			for (let campo = 0; campo < 4; campo++) {
-				const input = DOM.inputs[fila * 4 + campo];
-				if (!input.value) camposCompletos = false;
+				const dato = DOM.inputs[fila * 4 + campo];
+				if (!dato.value) camposCompletos = false;
 			}
 
 			// Activa o inactiva el ícono de confirmar
@@ -82,7 +82,7 @@ window.addEventListener("load", () => {
 				: DOM.ediciones[fila].classList.add("inactivo"); // inactivo
 
 			// Largo máximo de los inputs
-			inputListado.value = inputListado.value.slice(0, 20);
+			input.value = input.value.slice(0, 20);
 		});
 	});
 });
