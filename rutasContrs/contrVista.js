@@ -1,11 +1,10 @@
 "use strict";
+const funciones = require("../funciones.js");
 
 module.exports = {
 	listadoDePersonas: (req, res) => {
 		// Obtiene información del archivo 'json'
-		const rutaNombre = path.join(__dirname, "../archivosJson/personas.json");
-		const json = fs.readFileSync(rutaNombre, "utf8");
-		const info = JSON.parse(json);
+		const info = funciones.leerJson("personas");
 		const personas = info.map((n) => ({
 			id: n.id,
 			nombre: n["first-name"],
@@ -16,6 +15,6 @@ module.exports = {
 		return res.render("listadoPersonas", {personas});
 	},
 	pelisPorPersona: (req, res) => {
-		return res.send("pelisPorPersona")
+		return res.send("pelisPorPersona");
 	},
 };
