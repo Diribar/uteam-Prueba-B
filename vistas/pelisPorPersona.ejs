@@ -12,7 +12,7 @@
 
 		<!-- Formato personalizado -->
 		<link rel="stylesheet" href="/formatos/general.css" />
-		<link rel="stylesheet" href="/formatos/listadoPersonas.css" />
+		<link rel="stylesheet" href="/formatos/pelisPorPersona.css" />
 
 		<!-- Scripts -->
 		<script src="/javascript/listadoPersonas.js"></script>
@@ -20,15 +20,17 @@
 	<body class="flexColAlign">
 		<section id="datosPersona" class="flexRow">
 			<div id="personaId" class="ocultar"><%= persona.id %></div>
-			<div><%= persona.nombre %></div>
-			<div></div>
+			<div class="espacioDer">Persona:</div>
+			<div class="espacioDer negrita"><%= persona.nombre %></div>
+			<div class="negrita"><%= persona.apellido %></div>
 		</section>
 		<section id="peliculas">
 			<table>
 				<thead>
 					<tr>
-						<th>Título</th>
-						<th>Género</th>
+						<th id="titulo">Título</th>
+						<th class="genero">Género</th>
+						<th>Acción</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,14 +38,15 @@
 					<tr class="listado">
 						<td class="id ocultar"><%= pelicula.id %></td>
 						<td><%= pelicula.title %></td>
-						<td><%= pelicula.genre %></td>
+						<td class="genero"><%= pelicula.genre %></td>
 						<td><i class="eliminar fa-solid fa-trash-can"></i></td>
 					</tr>
 					<% } %>
 					<tr class="agregar">
 						<td>
 							<select name="peliId" id="">
-								<% for (let pelicula of peliculas) { %>
+								<option value="" class="ocultar">Agregar</option>
+								<% for (let pelicula of todasLasPelis) { %>
 									<option value="<%= pelicula.id %>"><%= pelicula.title %></option>
 								<% } %>
 							</select>

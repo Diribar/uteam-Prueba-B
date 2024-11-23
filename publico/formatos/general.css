@@ -1,6 +1,10 @@
 /* General */
+html {
+	font-size: 16px; /* debe estar en 'html', porque es de donde donde toma referencia el 'rem' */
+	line-height: 1;
+}
 body {background-color: lightcyan; padding-block: 30px ;}
-body * {background-color: transparent; color: inherit;}
+body * {font-family: 'Calibri', 'Trebuchet MS', 'sans-serif'; background-color: transparent; color: inherit;}
 
 /* Clases - flexbox */
 .flexCol {display: flex; flex-direction: column;}
@@ -12,3 +16,5 @@ body * {background-color: transparent; color: inherit;}
 .fa-solid:not(.inactivo) {cursor: pointer;}
 .inactivo {opacity: .5; cursor: not-allowed;}
 .ocultar {display: none;}
+
+td:has(i) {text-align: center;}

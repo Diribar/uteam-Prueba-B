@@ -1,0 +1,13 @@
+/* Particular */
+#datosPersona {margin-bottom: 20px; font-size: 20px; line-height: 1;}
+#datosPersona {color: snow; background-color: green; padding: 5px 10px; border-radius: 15px;}
+th#titulo {text-align: left;}
+.genero {min-width: 100px; text-align: center;}
+select {
+	background-color: snow;
+	&:has(option[value=""]:checked) {font-style: italic;}
+	option {font-style: normal;}
+}
+
+.espacioDer {margin-right: 5px;}
+.negrita {font-weight: bold;}

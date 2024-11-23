@@ -22,11 +22,10 @@ module.exports = {
 	pelisPorPersona: (req, res) => {
 		// Variables
 		const {id} = req.query;
-		let persona, pelisIds, peliculas;
 
 		// Obtiene la información de la persona
 		const personas = funciones.leerJson("personas");
-		persona = personas.find((n) => n.id == id);
+		let persona = personas.find((n) => n.id == id);
 		persona = {
 			id: persona.id,
 			nombre: persona["first-name"],
@@ -34,14 +33,14 @@ module.exports = {
 		};
 
 		// Obtiene las relaciones persona-película
-		pelisIds = funciones.leerJson("persPelis"); // obtiene el archivo de persPelis
+		let pelisIds = funciones.leerJson("persPelis"); // obtiene el archivo de persPelis
 		pelisIds = pelisIds.filter((n) => n.personaId == id).map((n) => n.peliId); // obtiene los id de las películas del usuario
 
 		// Obtiene las películas de la persona
-		peliculas = funciones.leerJson("peliculas"); // obtiene el archivo de películas
-		peliculas = peliculas.filter((n) => pelisIds.includes(n.id)); // obtiene las películas de la persona
+		const todasLasPelis = funciones.leerJson("peliculas"); // obtiene el archivo de películas
+		const peliculas = todasLasPelis.filter((n) => pelisIds.includes(n.id)); // obtiene las películas de la persona
 
 		// Fin
-		return res.render("pelisPorPersona", {persona, peliculas});
+		return res.render("pelisPorPersona", {persona, peliculas, todasLasPelis});
 	},
 };
