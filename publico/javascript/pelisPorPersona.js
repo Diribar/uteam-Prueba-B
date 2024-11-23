@@ -27,7 +27,6 @@ window.addEventListener("load", () => {
 		DOM.peliId.value
 			? DOM.agregar.classList.remove("inactivo") // activo
 			: DOM.agregar.classList.add("inactivo"); // inactivo
-
 	});
 });
 

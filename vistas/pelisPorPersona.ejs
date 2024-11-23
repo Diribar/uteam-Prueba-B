@@ -42,19 +42,20 @@
 						<td><i class="eliminar fa-solid fa-trash-can"></i></td>
 					</tr>
 					<% } %>
-					<% if (peliculas.length<) %>
+					<% if (peliculas.length < maxNumPelisPorPers) { %>
 					<tr id="agregar">
 						<td>
 							<select name="peliId">
 								<option value="" class="ocultar">Agregar</option>
 								<% for (let pelicula of todasLasPelis) { %>
-									<option value="<%= pelicula.id %>"><%= pelicula.title %></option>
+								<option value="<%= pelicula.id %>"><%= pelicula.title %></option>
 								<% } %>
 							</select>
 						</td>
 						<td></td>
 						<td><i class="confirmar fa-solid fa-circle-check inactivo"></i></td>
 					</tr>
+					<% } %>
 				</tbody>
 			</table>
 		</section>

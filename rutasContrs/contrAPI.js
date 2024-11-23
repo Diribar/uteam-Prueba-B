@@ -69,7 +69,12 @@ module.exports = {
 
 	// Películas por persona
 	eliminaPeli: (req, res) => {},
-	agregaPeli: (req, res) => {},
+	agregaPeli: (req, res) => {
+
+
+		// Fin
+		return res.json()
+	},
 
 	// Buscadores
 	buscaPersonaPorId: (req, res) => {},
