@@ -37,6 +37,13 @@ window.addEventListener("load", () => {
 				// Si está inactivo, interrumpe la función
 				if (DOM.ediciones[fila].className.includes("inactivo")) return;
 
+				// Deshabilita la edición
+				for (let campo = 0; campo < 4; campo++) DOM.inputs[fila * 4 + campo].disabled = true;
+
+				// Cambia el ícono
+				DOM.ediciones[fila].classList.replace("fa-circle-check", "fa-pen");
+				DOM.ediciones[fila].classList.remove("inactivo"); // lo deja activo
+
 				// Obtiene los valores
 				let datos = "/?id=" + DOM.ids[fila].innerHTML;
 				for (let campo = 0; campo < 4; campo++) {
@@ -44,11 +51,9 @@ window.addEventListener("load", () => {
 					if (!input.value) return;
 					datos += "&" + input.name + "=" + input.value;
 				}
-				console.log(datos);
 
 				// Actualiza la info
 				await fetch("/api/" + rutas.editar + datos);
-				// location.reload();
 			}
 		});
 	});
@@ -105,7 +110,7 @@ window.addEventListener("load", () => {
 	});
 
 	// Fin
-	return
+	return;
 });
 
 const rutas = {
