@@ -13,7 +13,9 @@ module.exports = {
 		return res.json()
 	},
 	agregaPersona: (req, res) => {
-		"agrega";
+		console.log("agrega");
+		console.log(req.query);
+		return res.json()
 	},
 
 	// Películas por persona
