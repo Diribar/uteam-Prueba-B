@@ -14,7 +14,6 @@ router.get("/api/agrega-persona", contrAPI.agregaPersona);
 router.get("/api/busca-persona-por-id", contrAPI.buscaPersonaPorId);
 router.get("/api/busca-persona-por-nombre", contrAPI.buscaPersonaPorNombre);
 router.get("/api/elimina-pelicula", contrAPI.eliminaPeli);
-router.get("/api/edita-pelicula", contrAPI.editaPeli);
 router.get("/api/agrega-pelicula", contrAPI.agregaPeli);
 
 // Rutas - Vista
