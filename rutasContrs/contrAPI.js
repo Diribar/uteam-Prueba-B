@@ -28,7 +28,7 @@ module.exports = {
 
 		// Quita la relación persona-película
 		info = funciones.leerJson("persPelis"); // obtiene el archivo de persPelis
-		info = info.filter((n) => n.personaId != id); // quita los elementos del usuario
+		info = info.filter((n) => n.personaId != id); // quita los registros del usuario
 		funciones.guardaJson("persPelis", info); // guarda la info
 
 		// Quita la persona
