@@ -8,16 +8,16 @@ window.addEventListener("load", () => {
 	};
 	DOM = {
 		...DOM,
+		// Casos puntuales
 		inputs: document.querySelectorAll("table .input"),
-		confirmar: DOM.agregar.querySelector(".confirmar"),
-
-		// Listado - campos
+		confirmar: document.querySelectorAll(".confirmar"),
 		ids: document.querySelectorAll(".listado .id"),
 
-		// Listado - íconos
+		// Íconos
 		ediciones: document.querySelectorAll(".listado .edicion"),
 		eliminars: document.querySelectorAll(".listado .eliminar"),
 		listadoPelis: document.querySelectorAll(".listado .pelis"),
+		agregar: document.querySelector(".agregar .confirmar"),
 	};
 
 	// Eventos - Edición
@@ -63,6 +63,24 @@ window.addEventListener("load", () => {
 			await fetch("/api/" + rutas.eliminar + datos);
 		});
 	});
+	// Eventos - Agregar
+	DOM.agregar.addEventListener("click", async () => {
+		// Si está inactivo, interrumpe la función
+		if (DOM.agregar.className.includes("inactivo")) return;
+
+		// Obtiene los valores
+		const fila = DOM.inputs.length / 4 - 1;
+		let datos = "";
+		for (let campo = 0; campo < 4; campo++) {
+			const input = DOM.inputs[fila * 4 + campo];
+			if (!input.value) return;
+			datos += (!datos ? "/?" : "&") + input.name + "=" + input.value;
+		}
+
+		// Actualiza la info
+		await fetch("/api/" + rutas.agregar + datos);
+		// location.reload();
+	});
 	// Eventos - Inputs
 	DOM.inputs.forEach((input, i) => {
 		input.addEventListener("input", () => {
@@ -78,8 +96,8 @@ window.addEventListener("load", () => {
 
 			// Activa o inactiva el ícono de confirmar
 			camposCompletos
-				? DOM.ediciones[fila].classList.remove("inactivo") // activo
-				: DOM.ediciones[fila].classList.add("inactivo"); // inactivo
+				? DOM.confirmar[fila].classList.remove("inactivo") // activo
+				: DOM.confirmar[fila].classList.add("inactivo"); // inactivo
 
 			// Largo máximo de los inputs
 			input.value = input.value.slice(0, 20);
