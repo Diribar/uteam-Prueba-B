@@ -1,13 +1,3 @@
-/* General */
-body {background-color: lightcyan; padding-block: 30px ;}
-body * {background-color: transparent; color: inherit;}
-
-/* Clases */
-.flexColAlign {display: flex; flex-direction: column; align-items: center;}
-.fa-solid {cursor: pointer;}
-.ocultar {display: none;}
-.inactivo {opacity: .5; cursor: not-allowed !important;}
-
 /* Particular */
 td {
 	text-align: center;

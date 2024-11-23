@@ -42,6 +42,6 @@ module.exports = {
 		peliculas = peliculas.filter((n) => pelisIds.includes(n.id)); // obtiene las películas de la persona
 
 		// Fin
-		return res.send(peliculas);
+		return res.render("pelisPorPersona", {persona, peliculas});
 	},
 };
