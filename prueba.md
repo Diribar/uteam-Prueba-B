@@ -24,10 +24,10 @@ Se deben crear recursos para las siguientes acciones:
 
 Personas
 - Listar todas las personas (debe retornar el listado ordenado por apellido, nombre)
+- Modificar una persona (solo se deben modificar los datos enviados. Si un dato no se envia, no se debe modificar)
+- Crear una persona
 - Buscar una persona por id
 - Buscar una persona por nombre
-- Crear una persona
-- Modificar una persona (solo se deben modificar los datos enviados. Si un dato no se envia, no se debe modificar)
 - Eliminar una persona
 
 Películas de Personas
