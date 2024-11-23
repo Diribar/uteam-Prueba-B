@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
 
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="/formatos/fontawesome/css/fontawesome.css">
-	<link rel="stylesheet" href="/formatos/fontawesome/css/solid.css">
-	<link rel="stylesheet" href="/formatos/fontawesome/css/regular.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="/formatos/fontawesome/css/fontawesome.css" />
+		<link rel="stylesheet" href="/formatos/fontawesome/css/solid.css" />
+		<link rel="stylesheet" href="/formatos/fontawesome/css/regular.css" />
 
-	<!-- Formato personalizado -->
-	<link rel="stylesheet" href="/formatos/listadoPersonas.css">
+		<!-- Formato personalizado -->
+		<link rel="stylesheet" href="/formatos/general.css" />
+		<link rel="stylesheet" href="/formatos/listadoPersonas.css" />
 
-	<!-- Scripts -->
-	<script src="/javascript/listadoPersonas.js"></script>
-</head>
-<body class="flexColAlign">
-	<table>
-		<thead>
-			<tr>
-				<th>Nombre</th>
-				<th>Apellido</th>
-				<th>Fecha de cumple</th>
-				<th>Tiene seguro</th>
-				<th>Editar</th>
-				<th>Eliminar</th>
-				<th>Películas</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% for (let persona of personas) { %>
+		<!-- Scripts -->
+		<script src="/javascript/listadoPersonas.js"></script>
+	</head>
+	<body class="flexColAlign">
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Fecha de cumple</th>
+					<th>Tiene seguro</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+					<th>Películas</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for (let persona of personas) { %>
 				<tr class="listado">
 					<td class="id ocultar"><%= persona.id %></td>
-					<td><input name="nombre" type="text" value="<%= persona.nombre %>" disabled class="input"></td>
-					<td><input name="apellido" type="text" value="<%= persona.apellido %>" disabled class="input"></td>
-					<td><input name="fechaCumple" type="date" value="<%= persona.fechaCumple %>" disabled class="input"></td>
+					<td><input name="nombre" type="text" value="<%= persona.nombre %>" disabled class="input" /></td>
+					<td><input name="apellido" type="text" value="<%= persona.apellido %>" disabled class="input" /></td>
+					<td><input name="fechaCumple" type="date" value="<%= persona.fechaCumple %>" disabled class="input" /></td>
 					<td>
 						<select name="tieneSeguro" id="" disabled class="input">
 							<option value="1" <% if (persona.tieneSeguro) { %>selected<% } %>>SI</option>
@@ -44,24 +45,26 @@
 					</td>
 					<td><i class="edicion confirmar fa-solid fa-pen"></i></td>
 					<td><i class="eliminar fa-solid fa-trash-can"></i></td>
-					<td><a href="/peliculas-por-persona/?id=<%= persona.id %>"><i class="pelis fa-solid fa-film"></i></a></td>
+					<td>
+						<a href="/peliculas-por-persona/?id=<%= persona.id %>"><i class="pelis fa-solid fa-film"></i></a>
+					</td>
 				</tr>
-			<% } %>
-			<tr class="agregar">
-				<td><input name="nombre" type="text" class="input"></td>
-				<td><input name="apellido" type="text" class="input"></td>
-				<td><input name="fechaCumple" type="date" class="input"></td>
-				<td>
-					<select name="tieneSeguro" class="input">
-						<option class="ocultar" selected></option>
-						<option value="1">SI</option>
-						<option value="0">NO</option>
-					</select>
-				</td>
-				<td><i class="confirmar fa-solid fa-circle-check inactivo"></i></td>
-				<td></td>
-			</tr>
-		</tbody>
-	</table>
-</body>
+				<% } %>
+				<tr class="agregar">
+					<td><input name="nombre" type="text" class="input" /></td>
+					<td><input name="apellido" type="text" class="input" /></td>
+					<td><input name="fechaCumple" type="date" class="input" /></td>
+					<td>
+						<select name="tieneSeguro" class="input">
+							<option class="ocultar" selected></option>
+							<option value="1">SI</option>
+							<option value="0">NO</option>
+						</select>
+					</td>
+					<td><i class="confirmar fa-solid fa-circle-check inactivo"></i></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
 </html>
