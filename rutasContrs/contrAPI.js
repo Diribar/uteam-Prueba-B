@@ -3,17 +3,14 @@
 module.exports = {
 	// Listado de personas
 	editaPersona: (req, res) => {
-		console.log("edita");
 		console.log(req.query);
 		return res.json()
 	},
 	eliminaPersona: (req, res) => {
-		console.log("elimina");
 		console.log(req.query);
 		return res.json()
 	},
 	agregaPersona: (req, res) => {
-		console.log("agrega");
 		console.log(req.query);
 		return res.json()
 	},
