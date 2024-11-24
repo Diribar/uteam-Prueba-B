@@ -10,4 +10,4 @@ select {
 }
 
 .espacioDer {margin-right: 5px;}
-.negrita {font-weight: bold;}
+.negrita:not(:has(em)) {font-weight: bold;}

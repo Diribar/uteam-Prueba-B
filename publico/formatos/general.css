@@ -5,6 +5,7 @@ html {
 }
 body {background-color: lightcyan; padding-block: 30px ;}
 body * {font-family: 'Calibri', 'Trebuchet MS', 'sans-serif'; background-color: transparent; color: inherit;}
+h1 {color: darkblue;}
 
 /* Clases - flexbox */
 .flexCol {display: flex; flex-direction: column;}

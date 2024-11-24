@@ -18,14 +18,15 @@
 		<script src="/javascript/pelisPorPersona.js"></script>
 	</head>
 	<body class="flexColAlign">
+		<h1>Películas por persona</h1>
 		<section id="datosPersona" class="flexRow">
 			<div id="personaId" class="ocultar"><%= persona.id %></div>
 			<div class="espacioDer">Persona:</div>
-			<div class="espacioDer negrita"><%= persona.nombre %></div>
+			<div class="espacioDer negrita"><%- persona.nombre ? persona.nombre : "<em>No tenemos una persona con su id</em>" %></div>
 			<div class="negrita"><%= persona.apellido %></div>
 		</section>
-		<section id="peliculas">
-			<table>
+		<% if (persona.nombre) { %>
+			<table id="peliculas">
 				<thead>
 					<tr>
 						<th id="titulo">Título</th>
@@ -58,6 +59,6 @@
 					<% } %>
 				</tbody>
 			</table>
-		</section>
+		<% } %>
 	</body>
 </html>
