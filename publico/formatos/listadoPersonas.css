@@ -1,4 +1,10 @@
-/* Particular */
+#buscadorPersonas {
+	& > :not(:last-child) {margin-right: 10px;}
+	input {text-align: center;}
+}
+
+h1 {margin-block-end: 0;}
+
 td {
 	text-align: center;
 	input {
