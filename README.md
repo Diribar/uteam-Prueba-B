@@ -8,3 +8,4 @@ PROYECTO B
 	- /listado-de-personas
 	- /peliculas-por-persona
 - En la fila 3 del archivo 'app.js' se especifica la cantidad máxima de películas por persona. Arbitrariamente, fue puesta en 5 unidades.
+- No fue pedida la función de alta de películas (sólo se pidió la de alta de películas por persona), así que se agregaron manualmente algunas películas a la base de datos.
