@@ -3,6 +3,7 @@ const funciones = require("../funciones.js");
 
 module.exports = {
 	inicio: (req, res) => res.redirect("/listado-de-personas"),
+
 	listadoDePersonas: (req, res) => {
 		// Obtiene información de las personas
 		const info = funciones.leerJson("personas");
@@ -20,6 +21,7 @@ module.exports = {
 		// Fin
 		return res.render("listadoPersonas", {personas});
 	},
+
 	pelisPorPersona: (req, res) => {
 		// Variables
 		const {id} = req.query;
