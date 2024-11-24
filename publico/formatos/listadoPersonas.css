@@ -1,16 +1,16 @@
 #buscadorPersonas {
 	& > :not(:last-child) {margin-right: 10px;}
-	input {text-align: center;}
 }
 
 h1 {margin-block-end: 0;}
+input {
+	text-align: center; width: min-content; background-color: snow;
+	&::placeholder {font-style: italic;}
+}
 
 td {
 	text-align: center;
-	input {
-		text-align: center; width: min-content; background-color: snow;
-		&:disabled {border-color: transparent;}
-	}
+	input:disabled {border-color: transparent;}
 	select {
 		background-color: snow;
 		&:disabled {border-color: transparent; opacity: 1;}

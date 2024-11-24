@@ -48,7 +48,7 @@ module.exports = {
 		let info = funciones.leerJson("personas");
 
 		// Genera un id
-		datosGuardar.id = FN.generaUnId(info);
+		datosGuardar.id = FN.generaUnNuevoId(info);
 
 		// Agrega el elemento y los ordena por su id
 		info.push(datosGuardar);
@@ -78,7 +78,7 @@ module.exports = {
 		// Variables
 		let datos = {id: null, ...req.query};
 		let info = funciones.leerJson("persPelis");
-		datos.id = FN.generaUnId(info);
+		datos.id = FN.generaUnNuevoId(info);
 		for (let campo in datos) datos[campo] = Number(datos[campo]);
 
 		// Agrega el elemento y los ordena por su id
@@ -93,8 +93,14 @@ module.exports = {
 	},
 
 	// Buscadores
-	buscaPersonaPorId: (req, res) => {},
-	buscaPersonaPorNombre: (req, res) => {},
+	buscadorPersonas: (req, res) => {
+		console.log(req.query);
+
+		const ids=[null]
+
+		// Fin
+		return res.json(ids);
+	},
 };
 
 const FN = {
@@ -105,7 +111,7 @@ const FN = {
 		birthdate: datos.fechaCumple,
 		"has-insurance": datos.tieneSeguro == "1",
 	}),
-	generaUnId: (info) => {
+	generaUnNuevoId: (info) => {
 		for (let id = 1; id <= info.length + 1; id++) {
 			const indice = info.findIndex((n) => n.id == id);
 			if (indice == -1) return id;

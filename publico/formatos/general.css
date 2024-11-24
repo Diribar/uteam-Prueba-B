@@ -19,4 +19,7 @@ h2 {font-size: 1.3rem; color: brown;}
 .inactivo {opacity: .5; cursor: not-allowed;}
 .ocultar {display: none;}
 
-td:has(i) {text-align: center;}
+table {
+	border-spacing: 20px 0;
+	td:has(i) {text-align: center;}
+}
