@@ -4,5 +4,9 @@
 	{"id": 3, "personaId": 2, "peliId": 1},
 	{"id": 4, "personaId": 2, "peliId": 4},
 	{"id": 5, "personaId": 2, "peliId": 5},
-	{"id": 7, "personaId": 2, "peliId": 2}
+	{"id": 6, "personaId": 4, "peliId": 6},
+	{"id": 7, "personaId": 2, "peliId": 2},
+	{"id": 8, "personaId": 4, "peliId": 4},
+	{"id": 9, "personaId": 4, "peliId": 5},
+	{"id": 10, "personaId": 4, "peliId": 3}
 ]

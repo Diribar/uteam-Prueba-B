@@ -39,7 +39,7 @@ module.exports = {
 		pelisIds = pelisIds.filter((n) => n.personaId == id).map((n) => n.peliId); // obtiene los id de las películas del usuario
 
 		// Obtiene las películas de la persona
-		const todasLasPelis = funciones.leerJson("peliculas"); // obtiene el archivo de películas
+		const todasLasPelis = funciones.leerJson("peliculas").sort((a, b) => (a.title < b.title ? -1 : 1)); // obtiene el archivo de películas
 		const peliculas = todasLasPelis.filter((n) => pelisIds.includes(n.id)); // obtiene las películas de la persona
 		const pelisAgregar = todasLasPelis.filter((n) => !pelisIds.some((m) => m == n.id)); // obtiene las películas que se pueden agregar
 
