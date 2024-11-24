@@ -3,23 +3,49 @@
 window.addEventListener("load", () => {
 	// Variables
 	let DOM = {
+		buscadorId: document.querySelector("#buscadorPersonas #buscaPorId"),
+		buscadorNombre: document.querySelector("#buscadorPersonas #buscaPorNombre"),
 		listado: document.querySelectorAll("table #listado"),
 		agregar: document.querySelector("table #agregar"),
 	};
 	DOM = {
 		...DOM,
 		// Casos puntuales
-		inputs: document.querySelectorAll("table .input"),
-		confirmar: document.querySelectorAll(".confirmar"),
 		ids: document.querySelectorAll("#listado .id"),
+		nombre: document.querySelectorAll("#listado input[name='nombre']"),
+		apellido: document.querySelectorAll("#listado input[name='apellido']"),
+		inputs: document.querySelectorAll("table .input"),
 
 		// Íconos
-		ediciones: document.querySelectorAll("#listado .edicion"),
+		ediciones: document.querySelectorAll("#listado .confirmar.edicion"),
 		eliminars: document.querySelectorAll("#listado .eliminar"),
 		listadoPelis: document.querySelectorAll("#listado .pelis"),
 		agregar: document.querySelector("#agregar .confirmar"),
+		confirmar: document.querySelectorAll(".confirmar"),
 	};
 
+	// Eventos - Inputs
+	DOM.inputs.forEach((input, i) => {
+		input.addEventListener("input", () => {
+			// Averigua la fila
+			const fila = Math.floor(i / 4);
+
+			// Averigua si todos los campos tienen un valor
+			let camposCompletos = true;
+			for (let campo = 0; campo < 4; campo++) {
+				const dato = DOM.inputs[fila * 4 + campo];
+				if (!dato.value) camposCompletos = false;
+			}
+
+			// Activa o inactiva el ícono de confirmar
+			camposCompletos
+				? DOM.confirmar[fila].classList.remove("inactivo") // activo
+				: DOM.confirmar[fila].classList.add("inactivo"); // inactivo
+
+			// Largo máximo de los inputs
+			input.value = input.value.slice(0, 20);
+		});
+	});
 	// Eventos - Edición
 	DOM.ediciones.forEach((edicion, fila) => {
 		edicion.addEventListener("click", async () => {
@@ -88,26 +114,34 @@ window.addEventListener("load", () => {
 		await fetch("/api/" + rutas.agregar + datos);
 		location.reload();
 	});
-	// Eventos - Inputs
-	DOM.inputs.forEach((input, i) => {
-		input.addEventListener("input", () => {
-			// Averigua la fila
-			const fila = Math.floor(i / 4);
+	// Eventos - buscadorId
+	DOM.buscadorId.addEventListener("input", () => {
+		// Obtiene el valor del filtro
+		const valor = DOM.buscadorId.value;
 
-			// Averigua si todos los campos tienen un valor
-			let camposCompletos = true;
-			for (let campo = 0; campo < 4; campo++) {
-				const dato = DOM.inputs[fila * 4 + campo];
-				if (!dato.value) camposCompletos = false;
-			}
+		// Revisa el filtro en cada fila
+		DOM.ids.forEach((id, fila) => {
+			if (valor)
+				id.innerHTML.includes(valor)
+					? DOM.listado[fila].classList.remove("ocultar") // muestra la fila si el id contiene la info del buscador
+					: DOM.listado[fila].classList.add("ocultar");
+			// Si el 'inputId' está vacío, muestra todas las filas
+			else DOM.listado[fila].classList.remove("ocultar");
+		});
+	});
+	// Eventos - buscadorNombre
+	DOM.buscadorNombre.addEventListener("input", () => {
+		// Obtiene el valor del filtro
+		const valor = DOM.buscadorNombre.value.toLowerCase();
 
-			// Activa o inactiva el ícono de confirmar
-			camposCompletos
-				? DOM.confirmar[fila].classList.remove("inactivo") // activo
-				: DOM.confirmar[fila].classList.add("inactivo"); // inactivo
-
-			// Largo máximo de los inputs
-			input.value = input.value.slice(0, 20);
+		// Revisa el filtro en cada fila
+		DOM.listado.forEach((fila, numero) => {
+			if (valor)
+				DOM.nombre[numero].value.toLowerCase().includes(valor) || DOM.apellido[numero].value.toLowerCase().includes(valor)
+					? fila.classList.remove("ocultar") // muestra la fila si el id contiene la info del buscador
+					: fila.classList.add("ocultar");
+			// Si el 'inputId' está vacío, muestra todas las filas
+			else fila.classList.remove("ocultar");
 		});
 	});
 

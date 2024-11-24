@@ -22,7 +22,7 @@
 		<div id="buscadorPersonas" class="flexRowAlign">
 			<h2>Buscador de personas</h2>
 			<input id="buscaPorId" type="text" placeholder="id" />
-			<input id="buscaPorNombreApellido" type="text" placeholder="nombre o apellido" />
+			<input id="buscaPorNombre" type="text" placeholder="nombre o apellido" />
 		</div>
 		<table>
 			<thead>
@@ -49,7 +49,7 @@
 							<option value="0" <% if (!persona.tieneSeguro) { %>selected<% } %>>NO</option>
 						</select>
 					</td>
-					<td><i class="edicion confirmar fa-solid fa-pen"></i></td>
+					<td><i class="confirmar edicion fa-solid fa-pen"></i></td>
 					<td><i class="eliminar fa-solid fa-trash-can"></i></td>
 					<td>
 						<a href="/peliculas-por-persona/?id=<%= persona.id %>"><i class="pelis fa-solid fa-film"></i></a>
