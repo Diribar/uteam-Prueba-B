@@ -1,0 +1,6 @@
+[
+	{"id": 1, "first-name": "Inés", "last-name": "Fernández", "birthdate": "2024-11-03", "has-insurance": true},
+	{"id": 2, "first-name": "Pepe", "last-name": "Sánchez", "birthdate": "2024-11-08", "has-insurance": true},
+	{"id": 3, "first-name": "José", "last-name": "Pérez", "birthdate": "2024-10-04", "has-insurance": false},
+	{"id": 4, "first-name": "Servicio", "last-name": "Técnico", "birthdate": "2024-11-03", "has-insurance": false}
+]
