@@ -3,6 +3,9 @@
 window.addEventListener("load", () => {
 	// Variables
 	let DOM = {
+		listado: document.querySelectorAll("table #listado"),
+		ids: document.querySelectorAll("#listado .id"),
+		eliminars: document.querySelectorAll("#listado .eliminar"),
 		peliId: document.querySelector("#agregar select[name='peliId']"),
 		agregar: document.querySelector("#agregar .confirmar"),
 	};
@@ -27,6 +30,19 @@ window.addEventListener("load", () => {
 		DOM.peliId.value
 			? DOM.agregar.classList.remove("inactivo") // activo
 			: DOM.agregar.classList.add("inactivo"); // inactivo
+	});
+	// Eventos - Eliminar
+	DOM.eliminars.forEach((eliminar, fila) => {
+		eliminar.addEventListener("click", async () => {
+			console.log(123);
+
+			// Obtiene los valores
+			const datos = "/?id=" + DOM.ids[fila].innerHTML;
+
+			// Actualiza la info
+			DOM.listado[fila].classList.add("ocultar");
+			await fetch("/api/" + rutas.eliminar + datos);
+		});
 	});
 });
 

@@ -62,7 +62,7 @@ window.addEventListener("load", () => {
 	DOM.eliminars.forEach((eliminar, fila) => {
 		eliminar.addEventListener("click", async () => {
 			// Obtiene los valores
-			let datos = "/?id=" + DOM.ids[fila].innerHTML;
+			const datos = "/?id=" + DOM.ids[fila].innerHTML;
 
 			// Actualiza la info
 			DOM.listado[fila].classList.add("ocultar");

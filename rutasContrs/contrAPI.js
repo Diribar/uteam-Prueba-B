@@ -62,7 +62,12 @@ module.exports = {
 	},
 
 	// Películas por persona
-	eliminaPeli: (req, res) => {},
+	eliminaPeli: (req, res) => {
+		console.log(66, req.query)
+
+		// Fin
+		return res.json()
+	},
 	agregaPeli: (req, res) => {
 		// Variables
 		let datos = {id: null, ...req.query};
