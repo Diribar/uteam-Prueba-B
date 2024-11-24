@@ -30,9 +30,7 @@ Personas
 
 Películas de Personas
 - Mostrar las películas de una persona
-
 - Agregar una película a una persona
-
 - Quitar una película de una persona
 - Se debe parametrizar el número máximo de películas por persona. Un valor entero que determina la máxima cantidad de películas que puede tener asociada una persona.
 

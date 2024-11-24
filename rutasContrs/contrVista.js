@@ -2,6 +2,7 @@
 const funciones = require("../funciones.js");
 
 module.exports = {
+	inicio: (req, res) => res.redirect("/listado-de-personas"),
 	listadoDePersonas: (req, res) => {
 		// Obtiene información de las personas
 		const info = funciones.leerJson("personas");

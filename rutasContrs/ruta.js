@@ -16,6 +16,7 @@ router.get("/api/elimina-relacion-persona-pelicula", contrAPI.eliminaPersPeli);
 router.get("/api/agrega-relacion-persona-pelicula", contrAPI.agregaPersPeli);
 
 // Rutas - Vista
+router.get("/", contrVista.inicio);
 router.get("/listado-de-personas", contrVista.listadoDePersonas);
 router.get("/peliculas-por-persona", contrVista.pelisPorPersona);
 
