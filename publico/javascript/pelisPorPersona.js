@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
 			console.log(123);
 
 			// Obtiene los valores
-			const datos = "/?id=" + DOM.ids[fila].innerHTML;
+			const datos = "/?personaId=" + personaId + "&peliId=" + DOM.ids[fila].innerHTML;
 
 			// Actualiza la info
 			DOM.listado[fila].classList.add("ocultar");
@@ -47,6 +47,6 @@ window.addEventListener("load", () => {
 });
 
 const rutas = {
-	agregar: "agrega-pelicula",
-	eliminar: "elimina-pelicula",
+	agregar: "agrega-relacion-persona-pelicula",
+	eliminar: "elimina-relacion-persona-pelicula",
 };

@@ -62,13 +62,19 @@ module.exports = {
 	},
 
 	// Películas por persona
-	eliminaPeli: (req, res) => {
-		console.log(66, req.query)
+	eliminaPersPeli: (req, res) => {
+		// Variables
+		const {personaId, peliId} = req.query;
+
+		// Quita la relación persona-película
+		let info = funciones.leerJson("persPelis"); // obtiene el archivo de persPelis
+		info = info.filter((n) => n.personaId != personaId || n.peliId != peliId); // quita la relación 'personaId' y 'peliId'
+		funciones.guardaJson("persPelis", info); // actualiza la info
 
 		// Fin
-		return res.json()
+		return res.json();
 	},
-	agregaPeli: (req, res) => {
+	agregaPersPeli: (req, res) => {
 		// Variables
 		let datos = {id: null, ...req.query};
 		let info = funciones.leerJson("persPelis");

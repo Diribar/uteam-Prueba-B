@@ -13,8 +13,8 @@ router.get("/api/agrega-persona", contrAPI.agregaPersona);
 // Rutas - API - Películas por persona
 router.get("/api/busca-persona-por-id", contrAPI.buscaPersonaPorId);
 router.get("/api/busca-persona-por-nombre", contrAPI.buscaPersonaPorNombre);
-router.get("/api/elimina-pelicula", contrAPI.eliminaPeli);
-router.get("/api/agrega-pelicula", contrAPI.agregaPeli);
+router.get("/api/elimina-relacion-persona-pelicula", contrAPI.eliminaPersPeli);
+router.get("/api/agrega-relacion-persona-pelicula", contrAPI.agregaPersPeli);
 
 // Rutas - Vista
 router.get("/listado-de-personas", contrVista.listadoDePersonas);
