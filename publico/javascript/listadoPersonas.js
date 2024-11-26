@@ -30,17 +30,12 @@ window.addEventListener("load", () => {
 			// Averigua la fila
 			const fila = Math.floor(i / 4);
 
-			// Averigua si todos los campos tienen un valor
-			let camposCompletos = true;
+			// Si algún campo no tiene valor, inactiva el ícono confirmar
+			DOM.confirmar[fila].classList.remove("inactivo") // activo
 			for (let campo = 0; campo < 4; campo++) {
 				const dato = DOM.inputs[fila * 4 + campo];
-				if (!dato.value) camposCompletos = false;
+				if (!dato.value) DOM.confirmar[fila].classList.add("inactivo"); // inactivo
 			}
-
-			// Activa o inactiva el ícono de confirmar
-			camposCompletos
-				? DOM.confirmar[fila].classList.remove("inactivo") // activo
-				: DOM.confirmar[fila].classList.add("inactivo"); // inactivo
 
 			// Largo máximo de los inputs
 			input.value = input.value.slice(0, 20);
