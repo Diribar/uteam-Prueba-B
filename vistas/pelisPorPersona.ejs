@@ -40,7 +40,7 @@
 						<td class="id ocultar"><%= pelicula.id %></td>
 						<td><%= pelicula.title %></td>
 						<td class="genero"><%= pelicula.genre %></td>
-						<td><i class="eliminar fa-solid fa-trash-can"></i></td>
+						<td class="eliminar"><i class="fa-solid fa-trash-can"></i></td>
 					</tr>
 					<% } %>
 					<% if (peliculas.length < maxNumPelisPorPers) { %>
@@ -54,11 +54,16 @@
 							</select>
 						</td>
 						<td></td>
-						<td><i class="confirmar fa-solid fa-circle-check inactivo"></i></td>
+						<td class="confirmar"><i class="fa-solid fa-circle-check inactivo"></i></td>
 					</tr>
 					<% } %>
 				</tbody>
 			</table>
 		<% } %>
+		<section id="sectorIconos" class="flexRow">
+			<a href="/listado-de-personas" class="iconos">
+				<i class="fa-solid fa-circle-left" title="Ir al listado de personas"></i>
+			</a>
+		</section>
 	</body>
 </html>

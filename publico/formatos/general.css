@@ -2,9 +2,18 @@
 html {
 	font-size: 16px; /* debe estar en 'html', porque es de donde donde toma referencia el 'rem' */
 	line-height: 1;
+	body {background-color: lightcyan; padding-block: 30px ;}
+	body * {
+		background-color: transparent; color: inherit;
+		font-family: 'Calibri', 'Trebuchet MS', 'sans-serif'; font-size: inherit;
+	}
+	table {
+		border-spacing: 20px 10px;
+		td:has(i) {text-align: center;}
+	}
 }
-body {background-color: lightcyan; padding-block: 30px ;}
-body * {font-family: 'Calibri', 'Trebuchet MS', 'sans-serif'; background-color: transparent; color: inherit;}
+
+/* Tags */
 h1 {font-size: 1.5rem; color: darkblue;}
 h2 {font-size: 1.3rem; color: brown;}
 
@@ -18,8 +27,3 @@ h2 {font-size: 1.3rem; color: brown;}
 .fa-solid:not(.inactivo) {cursor: pointer;}
 .inactivo {opacity: .5; cursor: not-allowed;}
 .ocultar {display: none;}
-
-table {
-	border-spacing: 20px 0;
-	td:has(i) {text-align: center;}
-}

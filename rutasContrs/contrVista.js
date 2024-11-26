@@ -15,8 +15,10 @@ module.exports = {
 			tieneSeguro: n["has-insurance"],
 		}));
 
-		// Las ordena alfabéticamente
-		personas.sort((a, b) => (a.nombre < b.nombre ? -1 : 1)).sort((a, b) => (a.apellido < b.apellido ? -1 : 1));
+		// Las ordena alfabéticamente . por apellido, y ante empate, por nombre
+		personas
+			.sort((a, b) => (a.nombre < b.nombre ? -1 : 1)) // por nombre
+			.sort((a, b) => (a.apellido < b.apellido ? -1 : 1)); // por apellido
 
 		// Fin
 		return res.render("listadoPersonas", {personas});
