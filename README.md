@@ -4,8 +4,8 @@ PROYECTO B
 	- Desarrollar un REST API basado en arquitectura Microservicio, utilizando Spring Boot, usando Maven o Gradle.
 	No conozco esa arquitectura ni Spring Boot, ni Marven ni Gradle. Por eso le consulté a la persona que me envió el trabajo a hacer (Analía) si podía usar una herramienta alternativa, y ante su respuesta afirmativa lo hice usando APIs con Node.js y JavaScript.
 	Por supuesto, estoy abierto a aprender nuevas tecnologías, pero estimé que no era atinado dedicarle tiempo a aprenderlas para esta ocasión, demorando mi devolución del trabajo.
-
 	- Generar una estructura de datos In-Memory (a elección). Si bien podía usar una base de datos con Sequelize, por ser un trabajo pequeño y de corto tiempo para codificar, opté por la herramienta json.
+	- El código de programación es Node.js más JavaScript.
 
 2. Para ejecutar esta aplicación, se debe:
 	- Tener instalado Node.js
@@ -23,4 +23,6 @@ PROYECTO B
 
 5. Particularidades:
 	- En la fila 3 del archivo 'app.js' se especifica la cantidad máxima de películas por persona. Arbitrariamente, fue puesta en 5 unidades.
-	- No fue pedida la función de alta de películas (sólo se pidió la de alta de películas por persona), así que se agregaron manualmente algunas películas a la base de datos.
+	- Los resultados CRUD se ven impactados en los archivo json que están en la carpeta \archivosJson.
+	- No fue pedida la función de alta de películas (sólo se pidió la de alta de películas por persona), así que se agregaron manualmente algunas películas al archivo peliculas.json
+	- El archivo que se actiualiza cuando se agregan o quitan películas de una persona, es el archivo persPelis.json, que es el que tiene los id que relaciona las tablas personas y películas.
